@@ -1,0 +1,4 @@
+#Tipos de Binding
+    -DataBinding
+    -Property Binding
+    -TwoWays DataBinding

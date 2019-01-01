@@ -1,13 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-
   <!--// String Interpolation-->
     <h1>
       Welcome to {{ title }}!
     </h1>
   <!--//forma de escribir lo que tengo en TS en Html-->
-
-
   <hr/>
     <!--
       Property Binding
@@ -15,11 +12,30 @@
     <!--<button [disabled]="false">Click me!</button>-->
 
   <!--Forma con variable-->
-    <button [disabled]="ready">Click me!</button>
-
+    <button [disabled]="!ready">Click me!</button>
 
   <!--Event Bindding-->
-  <button [disabled]="ready" (click)="hacerAlgo()">Click me!</button>
+  <button [disabled]="!ready" (click)="hacerAlgo()">Click me!</button>
 
-
+  <hr/>
+<!--
+      Two ways DataBinding
+-->
+    <input
+        type="text" name="" placeholder="Nombre" value=""
+        [(ngModel)]="nombre"
+     />
+     <p>
+       Mi nombre es {{nombre}}
+     </p>
 </div>
+
+
+
+<hr>
+<!-- ngFor -->
+  <ul>
+    <ng-container *ngFor="let lugar of lugares">
+      <li *ngIf="lugar.active">{{lugar.nombre}}</li>
+    </ng-container>
+  </ul>

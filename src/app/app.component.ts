@@ -8,6 +8,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'PlatziSquare';
   ready = false;
+  nombre = '';
+  lugares:any = [
+                  {active:true, nombre:'Floreria Gardencia'},
+                  {active:true, nombre:'Veterinaria'},
+                  {active:true, nombre:'Ferreteria'},
+                  {active:true, nombre:'Barberia'},
+                ]
 
 //  Contructor de TS
 
