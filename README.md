@@ -1,27 +1,38 @@
-# PlatziSquare
+#Tipos de Binding
+    -String Interpolation
+      -*Ejemplo*
+        _"Welcome to {{ title }}!"_
+    -Property Binding
+      -*Ejemplo*
+        _"<button [disabled]='!ready'>Click me!</button>"_
+    -TwoWays DataBinding
+      -*Ejemplo*
+          _<input
+              type="text" name="" placeholder="Nombre" value=""
+              [(ngModel)]="nombre"
+          />
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
+          <p>
+            Mi nombre es {{nombre}}
+          </p>_
 
-## Development server
+#Directivas
+    -Componentes
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+    -Estructurales 'Estas empiezan con asterisco'
+      -*Ejemplo*
+        -Directiva 'ngFor'
+        _"<li *ngFor="let [Item] of [Arreglo]">{{lugar.nombre}}</li>"_
+        se le puede declarar mas de una variable, por ejemplo:
+         _"<li *ngFor="[variable1] ; [variable2]">{{lugar.nombre}}</li>"_
+        -Directiva ngIf
+        _"<li *ngFor="let [Item] of [Arreglo]">{{lugar.nombre}}</li>"_
+    -Atributos
 
-## Code scaffolding
+#ngStyle
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[ngStyle]="{[atributo]:([condicion]) ? [attrSiVerdadero]:[attrSiFalso]}"
 
-## Build
+#ngClass
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[ngClass]='{[condicion]}'

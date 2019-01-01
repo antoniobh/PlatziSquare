@@ -19,10 +19,20 @@
 #Directivas
     -Componentes
 
-    -Estructurales
+    -Estructurales 'Estas empiezan con asterisco'
       -*Ejemplo*
-        -Directiva '*ngFor'
+        -Directiva 'ngFor'
         _"<li *ngFor="let [Item] of [Arreglo]">{{lugar.nombre}}</li>"_
-        -Directiva *ngIf
+        se le puede declarar mas de una variable, por ejemplo:
+         _"<li *ngFor="[variable1] ; [variable2]">{{lugar.nombre}}</li>"_
+        -Directiva ngIf
         _"<li *ngFor="let [Item] of [Arreglo]">{{lugar.nombre}}</li>"_
     -Atributos
+
+#ngStyle
+
+[ngStyle]="{[atributo]:([condicion]) ? [attrSiVerdadero]:[attrSiFalso]}"
+
+#ngClass
+
+[ngClass]='{[condicion]}'

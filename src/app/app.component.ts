@@ -10,11 +10,13 @@ export class AppComponent {
   ready = false;
   nombre = '';
   lugares:any = [
-                  {active:true, nombre:'Floreria Gardencia'},
+                  {active:false, nombre:'Floreria Gardencia'},
                   {active:true, nombre:'Veterinaria'},
                   {active:true, nombre:'Ferreteria'},
                   {active:true, nombre:'Barberia'},
-                ]
+                ];
+  lat: number = 10.0072897 ;
+  lng: number = -84.11699091754 ;
 
 //  Contructor de TS
 
