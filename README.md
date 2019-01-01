@@ -44,3 +44,5 @@ Para mostrar el dato se usa un __StringInterpolation__
 #### - Directiva *ngClass ( Atributo )
 
 `[ngClass]='{[condicion]}'`
+
+Editado en el 2019
