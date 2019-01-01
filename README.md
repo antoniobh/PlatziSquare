@@ -17,7 +17,7 @@ type="text" name="" placeholder="Nombre" value=""
 
 Para mostrar el dato se usa un __StringInterpolation__
 
-`<p>Mi nombre es {{nombre}}</p>`
+`<p>Mi nombre es {{nombre}}</p>` 
 
 # Directivas
 - __Componentes__   : Directivas con un Template
