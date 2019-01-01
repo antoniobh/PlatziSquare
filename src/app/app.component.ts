@@ -10,10 +10,10 @@ export class AppComponent {
   ready = false;
   nombre = '';
   lugares:any = [
-                  {active:false, nombre:'Floreria Gardencia'},
-                  {active:true, nombre:'Veterinaria'},
-                  {active:true, nombre:'Ferreteria'},
-                  {active:true, nombre:'Barberia'},
+                  {plan: 'gratuito' ,cercania:1, active:false, nombre:'Floreria Gardencia'},
+                  {plan: 'pagado' ,cercania:2, active:true, nombre:'Veterinaria'},
+                  {plan: 'pagado' ,cercania:1, active:true, nombre:'Ferreteria'},
+                  {plan: 'pagado' ,cercania:3, active:true, nombre:'Barberia'},
                 ];
   lat: number = 10.0072897 ;
   lng: number = -84.11699091754 ;
