@@ -1,38 +1,46 @@
-#Tipos de Binding
-    -String Interpolation
-      -*Ejemplo*
-        _"Welcome to {{ title }}!"_
-    -Property Binding
-      -*Ejemplo*
-        _"<button [disabled]='!ready'>Click me!</button>"_
-    -TwoWays DataBinding
-      -*Ejemplo*
-          _<input
-              type="text" name="" placeholder="Nombre" value=""
-              [(ngModel)]="nombre"
-          />
+# Tipos de Binding
 
-          <p>
-            Mi nombre es {{nombre}}
-          </p>_
+- String Interpolation
 
-#Directivas
-    -Componentes
+`"Welcome to {{ title }}!"`
 
-    -Estructurales 'Estas empiezan con asterisco'
-      -*Ejemplo*
-        -Directiva 'ngFor'
-        _"<li *ngFor="let [Item] of [Arreglo]">{{lugar.nombre}}</li>"_
-        se le puede declarar mas de una variable, por ejemplo:
-         _"<li *ngFor="[variable1] ; [variable2]">{{lugar.nombre}}</li>"_
-        -Directiva ngIf
-        _"<li *ngFor="let [Item] of [Arreglo]">{{lugar.nombre}}</li>"_
-    -Atributos
+- Property Binding
 
-#ngStyle
+`"<button [disabled]='!ready'>Click me!</button>`
 
-[ngStyle]="{[atributo]:([condicion]) ? [attrSiVerdadero]:[attrSiFalso]}"
+- TwoWays DataBinding
 
-#ngClass
+` <input
+type="text" name="" placeholder="Nombre" value=""
+[(ngModel)]="nombre"
+/>`
 
-[ngClass]='{[condicion]}'
+Para mostrar el dato se usa un __StringInterpolation__
+
+`<p>Mi nombre es {{nombre}}</p>`
+
+# Directivas
+- __Componentes__   : Directivas con un Template
+- __Estructurales__ : Directivas que cambian el DOM
+- __Atributo__      : Directivas implementadas a traves de atributo que pueden modificar el elemento al que estan asignados.
+
+#### - Directiva *ngFor ( Estructural )
+
+`"<li *ngFor="let [Item] of [Arreglo]">{{[Arreglo.Variable]}}</li>"`
+
+    se le puede declarar mas de una variable, por ejemplo:
+
+`"<li *ngFor="[Arreglo..] ; [variable2]">{{Arreglo.Variable}}</li>"`
+
+#### - Directiva *ngIf ( Estructural )
+
+`<li *ngIf="[VariableBooleana]">{{Arreglo.Variable}}</li>`
+
+
+#### - Directiva *ngStyle ( Atributo )
+
+`[ngStyle]="{[atributo]:([condicion]) ? [attrSiVerdadero]:[attrSiFalso]}" `
+
+#### - Directiva *ngClass ( Atributo )
+
+`[ngClass]='{[condicion]}'`
