@@ -1,54 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <a class="navbar-brand  text-light" href="#">PlatziSquare</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand  text-light" href="#">PlatziSquare</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
-        <li class="nav-item active">
-          <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">Disabled</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-
-
-
-
-    <agm-map [latitude]="lat" [longitude]="lng">
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-    </agm-map>
-
-<!-- ngFor -->
-<div class="container">
-
-  <div class="row">
-    <div class="col-md-8">
-      <h4>Lugares Cercanos</h4>
-
-      <ul class="list-group">
-        <ng-container *ngFor="let lugar of lugares">
-          <li class="list-group-item" *ngIf="lugar.active">{{lugar.nombre}}</li>
-        </ng-container>
-      </ul>
-
-    </div>
-    <div class="col-md-4">
-      <h4>Destacados</h4>
-    </div>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link text-light" routerLink="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link text-light" routerLink="/lugares/1">Lugares</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link text-light" routerLink="/detalle/2">Detalle</a>
+      </li>
+    </ul>
   </div>
+</nav>
 
-</div>
+<router-outlet></router-outlet>

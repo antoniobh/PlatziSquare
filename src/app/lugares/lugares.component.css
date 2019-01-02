@@ -1,0 +1,9 @@
+/* Reglas para el componente lugares.component */
+agm-map {
+  height: 300px;
+}
+
+.numeroPar{
+  background: aliceblue;
+  color: blue;
+}

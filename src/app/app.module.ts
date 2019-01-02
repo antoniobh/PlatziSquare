@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LugaresComponent } from './lugares/lugares.component';
+import { DetalleComponent } from './detalle/detalle.component';
 
 // Agregados por mi
   import { FormsModule } from '@angular/forms';
@@ -11,13 +13,16 @@ import { AppComponent } from './app.component';
   import { ContarClicksDirective } from './directives/contar-clicks.directive';
   import { Routes, RouterModule } from '@angular/router';
 const appRoutes: Routes = [
-  {patch: '', component: AppComponent}
-  {patch: 'lugares', component: AppComponent}
+  {path: '', component: LugaresComponent},
+  {path: 'lugares/:id', component: LugaresComponent},
+  {path: 'detalle/:id', component: DetalleComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
+    DetalleComponent,
+    LugaresComponent,
       ResaltarDirective,
       ContarClicksDirective
   ],

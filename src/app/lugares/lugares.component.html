@@ -1,0 +1,23 @@
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+
+<!-- ngFor -->
+<div class="container">
+
+<div class="row">
+<div class="col-md-8">
+  <h4>Lugares Cercanos</h4>
+
+  <ul class="list-group">
+    <ng-container *ngFor="let lugar of lugares">
+      <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action:'view', referer:'Google'}"><li class="list-group-item" *ngIf="lugar.active">{{lugar.nombre}}</li></a>
+    </ng-container>
+  </ul>
+
+</div>
+<div class="col-md-4">
+  <h4>Destacados</h4>
+</div>
+</div>
+</div>

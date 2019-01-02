@@ -256,7 +256,7 @@ import { Routes } from '@angular/router';
 //Creamos la constante de tipo 'Routes'
 
 const appRoutes: Routes = [
-  {patch: 'lugares', component: AppComponent}
+  {path: 'lugares', component: AppComponent}
 ]
 ```
 
@@ -281,4 +281,126 @@ imports:[
   // se le pasa como argumento el arreglo de rutas.
   RouterModule.forRoot(appRoutes);
 ]
+```
+
+Para agregar componentes se deben de crear en la carpeta de app como una subcarpeta con el nombre del componente y los archivos.
+
+- NameComponemt.component.ts
+- NameComponemt.component.html
+- NameComponemt.component.class
+
+Una vez creados se agrega el componente al __app.module.ts__ ademas de hacer el import.
+
+
+```javascript
+
+
+import { DetalleComponent } from './detalle/detalle.component';
+
+@NgModule({
+  declarations: [
+        AppComponent,
+        DetalleComponent,
+      ]
+    })
+...
+
+```
+
+
+> Para que la navegacion sea posible, debemos de ingresar el siguiente tag en el __app.component.html__, en este archivo no de de existir mas que lo que vaya a existir en todas las paginas
+
+```html
+
+  <router-outlet></router-outlet>
+
+```
+
+
+# Router link
+
+### Diferencias entre href y routerLink
+
+La principal diferencia es que el href redirecciona y recarga la pagina, en cambio el routerLink solamente cambia el contenido de la pagina.
+
+para hacer uso de ella solamente cambiamos el href por routerLink
+
+```html
+
+    <a routerLink="/"> Home </a>
+
+```
+
+
+Para resaltar la seccion en la que nos encontramos en el menu de navegacion seria de la agregando el atributo de __routerLinkActive__ el cual recibe como parametro el nombre de la clase que resalta el contenido.
+
+```html
+<li class="nav-item" routerLinkActive="active">
+  <a class="nav-link text-light" routerLink="/detalle">Detalle</a>
+</li>
+
+
+```
+
+# Pasar parametros por la styleUrls
+
+Para pasar la informacion por la url se debe de agregar la informacion de los  parametros en el archivo de __app.module.ts__ , dichos parametros no son opcionales por lo cual si se indica un parametro se debe de enviar.
+
+para hacer esto debemos de agregarlo de la siguiente manera:
+
+
+```javascript
+
+
+  {path: 'lugares/:id', component: LugaresComponent},
+
+  /*
+      los parametros se escriben '/:NombreParametro'
+      si se desea agregar mas de un parametro se deben de escribir juntos
+
+      Ejemplo:
+  */
+
+  {path: 'lugares/:parametro_1/:parametro_2', component: LugaresComponent},
+
+```
+
+# Capturar los parametros
+
+Para capturar los parametros debemos de crear el contructor en el __Name.component.ts__ que va recibir los parametros.
+
+```javascript
+
+// hacemos el import
+import { ActivatedRoute } from '@angular/router';
+...
+export class NameComponent {
+
+  constructor(private route:ActivatedRoute){
+    //imprimimos el parametro en consola
+
+    console.log(this.route.snapshot.params['id']);
+  }
+}
+```
+
+# Parametros tipo Query
+
+
+## Enviar parametros
+
+Para enviar los parametros usamos la Directiva __[queryParams]__
+
+```html
+
+  <a routerLink="detalle/{{lugar.id}}" [queryParams]="{action:'view' ,Parametro2:'valor'}">link</a>
+
+```
+## Recibir Parametros
+
+Usamos este codigo en el __NameComponent.component.ts__.
+
+```javascript
+// Se imprime en consola a modo de ejemplo
+console.log(this.route.snapshot.queryparams['NombreDelParametro']);
 ```
