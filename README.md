@@ -350,7 +350,7 @@ Para resaltar la seccion en la que nos encontramos en el menu de navegacion seri
 
 ```
 
-# Pasar parametros por la styleUrls
+# Pasar parametros por la Url
 
 Para pasar la informacion por la url se debe de agregar la informacion de los  parametros en el archivo de __app.module.ts__ , dichos parametros no son opcionales por lo cual si se indica un parametro se debe de enviar.
 
