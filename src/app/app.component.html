@@ -1,59 +1,54 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <!--// String Interpolation-->
-    <h1>
-      Welcome to {{ title }}!
-    </h1>
-  <!--//forma de escribir lo que tengo en TS en Html-->
-  <hr/>
-    <!--
-      Property Binding
-    -->
-    <!--<button [disabled]="false">Click me!</button>-->
-
-  <!--Forma con variable-->
-    <button [disabled]="!ready">Click me!</button>
-
-  <!--Event Bindding-->
-  <button [disabled]="!ready" (click)="hacerAlgo()">Click me!</button>
-
-  <hr/>
-<!--
-      Two ways DataBinding
--->
-    <input
-        type="text" name="" placeholder="Nombre" value=""
-        [(ngModel)]="nombre"
-     />
-     <p>
-       Mi nombre es {{nombre}}
-     </p>
-</div>
 
 
 
-<hr>
-Maps
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand  text-light" href="#">PlatziSquare</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
+        <li class="nav-item active">
+          <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+
     <agm-map [latitude]="lat" [longitude]="lng">
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
     </agm-map>
 
-
-<hr>
 <!-- ngFor -->
-  <ul>
-    <ng-container *ngFor="let lugar of lugares">
-      <li *ngIf="lugar.active">{{lugar.nombre}}</li>
-    </ng-container>
-  </ul>
+<div class="container">
 
-  <ul>
-    <ng-container *ngFor="let lugar of lugares; let i = index" ; [ngSwitch]="lugar.cercania">
-      <li [ngStyle]="{color:(lugar.active) ? 'black':'grey'}" [ngClass]='{numeroPar:(i + 1) % 2 !== 0}'>
-        {{lugar.nombre}} -
-        <span *ngSwitchCase="1">Muy Cernano</span>
-        <span *ngSwitchCase="2">Cernano</span>
-        <span *ngSwitchCase="3">lejano</span>
-      </li>
-    </ng-container>
-  </ul>
+  <div class="row">
+    <div class="col-md-8">
+      <h4>Lugares Cercanos</h4>
+
+      <ul class="list-group">
+        <ng-container *ngFor="let lugar of lugares">
+          <li class="list-group-item" *ngIf="lugar.active">{{lugar.nombre}}</li>
+        </ng-container>
+      </ul>
+
+    </div>
+    <div class="col-md-4">
+      <h4>Destacados</h4>
+    </div>
+  </div>
+
+</div>

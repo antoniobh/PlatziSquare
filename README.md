@@ -133,7 +133,7 @@ import {Directive, OnInit, ElementRef, Renderer2, Input} from "@angular/core"
     selector: '[resaltar]'
   })
 
-  export class 'ResaltarDirective' implements OnInit{
+  export class ResaltarDirective implements OnInit{
     @Input('resaltar') plan : string = '';
     ngOnInit(){
       if(this.plan === 'pagado'){
@@ -159,4 +159,126 @@ Finalmente para poder hacer uso de nuestra Directiva debemos de incluirla en __a
   ],
 
   ...})
+```
+
+Para hacer uso de las Directivas que hemos creado lo hacemos como con cualquier directiva, si la directiva no recibe parametros no es nesesario encerrarla entre llaves cuadradas, simplemente se coloca el nombre de la directivas
+
+Ejemplo:
+
+```html
+  <a nombre-directiva>...</a>
+```
+
+# Host Listeners
+
+Los HostListeners se usan para escuchar un evento especifico.
+
+Primeramente se crea una directiva.
+
+```javascript
+
+import { Directive } from '@angular/core';
+
+@Directive({
+    selector: '[[Selector]]'
+  })
+
+export class [DirectiveName]{
+
+    /*
+      Esta funcion recibe 3 parametros
+        1) Evento {[click],[mouseOver], [mouseLeft], etc}
+        2) Un arreglo
+        3) En que momento se Dispara
+    */
+    @HostListener('click',['$event.target']) onClick(btn){
+      //Funcion a hacer
+    }
+}
+
+```
+
+
+# Host Binding
+
+Permite editar el elemento del dom desde la directiva.
+este metodo debe de ser combinado con el HostListener para funcionar adecuadamente.
+
+```javascript
+import { Directive, HostListener, HostBinding } from '@angular/core';
+
+@Directive({
+    selector: 'li[contar-clicks]'
+  })
+
+export class ContarClicksDirective{
+    clickN = 0;
+
+    @HostBinding('style.opacity') opacity: number = .1;
+
+    @HostListener('click',['$event.target']) onClick(btn){
+      console.log('a',btn,"Numero de clicks:", this.clickN++);
+      this.opacity += .1;
+    }
+}
+```
+
+
+# Bootstrap
+
+Para hacer uso de Bootstrap debemos de instalar el paquete con el npm y posteriormente en el archivo de __.angular-cli.json__ incluimos el Bootstrap, este archivo es donde angular busca que paquetes ocupa para correr.
+
+lo integramos en la parte de styles.
+
+```javascript
+
+...
+"styles": [
+  "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "src/styles.css"
+],
+...
+```
+
+
+# Ruteo
+
+El router es la forma en la que Angular monta un componente en el dom segun la incluirla
+
+
+para configurar el Router debemos de editar el archivo __app.module.ts__
+
+
+```javascript
+// Agregamos el correspondinte 'import'
+import { Routes } from '@angular/router';
+
+//Creamos la constante de tipo 'Routes'
+
+const appRoutes: Routes = [
+  {patch: 'lugares', component: AppComponent}
+]
+```
+
+# Implementacion de Rutas
+
+Para que el proyecto funcione adecuadamente con mas de 1 ruta debemos de hacer las configuraciones correspondientes.
+
+para eso se debe de editar el archivo __app.module.ts__
+
+a continuacion se implementa el __RouterModule__.
+
+En la seccion de imports agregamos las siguientes lineas
+
+```javascript
+// se agrega el import de RouterModule
+import { Routes, RouterModule } from '@angular/router';
+
+//se agrega el metodo en la seccion de imports
+
+imports:[
+  ...
+  // se le pasa como argumento el arreglo de rutas.
+  RouterModule.forRoot(appRoutes);
+]
 ```
