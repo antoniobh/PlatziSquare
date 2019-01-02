@@ -31,17 +31,20 @@ type="text" name="" placeholder="Nombre" value=""
 #### - Directiva *ngFor ( Estructural )
 
 ```html
-<li *ngFor="let [Item] of [Arreglo]">{{[Arreglo.Variable]}}</li>```
+<li *ngFor="let [Item] of [Arreglo]">{{[Arreglo.Variable]}}</li>
+```
 
 >se le puede declarar mas de una variable, por ejemplo:
 
 ```html
-<li *ngFor="[Arreglo..] ; [variable2]">{{Arreglo.Variable}}</li>```
+<li *ngFor="[Arreglo..] ; [variable2]">{{Arreglo.Variable}}</li>
+```
 
 #### - Directiva *ngIf ( Estructural )
 
 ```html
-<li *ngIf="[VariableBooleana]">{{Arreglo.Variable}}</li>```
+<li *ngIf="[VariableBooleana]">{{Arreglo.Variable}}</li>
+```
 
 #### - Directiva [ngSwitch]
 >Esta Directiva sirve para evaluar una expresion literal.
@@ -51,18 +54,21 @@ type="text" name="" placeholder="Nombre" value=""
 
   <span *ngSwitchCase="[Case]">[ValorPorMostrar]</span>
 
-</ng-container>```
+</ng-container>
+```
 
 
 #### - Directiva *ngStyle ( Atributo )
 
 ```javascript
-[ngStyle]="{[atributo]:([condicion]) ? [attrSiVerdadero]:[attrSiFalso]}" ```
+[ngStyle]="{[atributo]:([condicion]) ? [attrSiVerdadero]:[attrSiFalso]}"
+```
 
 #### - Directiva *ngClass ( Atributo )
 
 ```javascript
-[ngClass]='{[condicion]}'```
+[ngClass]='{[condicion]}'
+```
 
 
 
@@ -78,10 +84,12 @@ import {Directive, OnInit, ElementRef, Renderer2, Input} from "@angular/core"
 ```
 
 tambien debemos de colocar el decorador de DIRECTIVAS
+
 ```javascript
 @Directive({
     selector: [Nombre_Del_Selector]
-  })```
+  })
+```
 
 Creamos el exportar la clase
 
@@ -403,4 +411,21 @@ Usamos este codigo en el __NameComponent.component.ts__.
 ```javascript
 // Se imprime en consola a modo de ejemplo
 console.log(this.route.snapshot.queryparams['NombreDelParametro']);
+```
+
+# Metodo Filter
+
+Para buscar en una lista con el metodo filter debemos de hacerlo de la sguiente manera
+
+
+```javascript
+
+  buscarLugar(){
+  /*
+      El metodo Filter busca dentro el arreglo
+      Filter regresa siempre un arreglo, por lo que se le indica que regrese el primero [0] y si no encuentra nada que regrese una lista vacia.
+  */
+  return this.Arreglo.filter((data) =>{return data.Variable == this.Variable})[0] || null;
+  }
+
 ```
