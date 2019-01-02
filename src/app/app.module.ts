@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LugaresComponent } from './lugares/lugares.component';
 import { DetalleComponent } from './detalle/detalle.component';
+import { ContactoComponent } from './contacto/contacto.component';
+import { LugaresService } from './services/lugares.service';
 
 // Agregados por mi
   import { FormsModule } from '@angular/forms';
@@ -14,8 +16,9 @@ import { DetalleComponent } from './detalle/detalle.component';
   import { Routes, RouterModule } from '@angular/router';
 const appRoutes: Routes = [
   {path: '', component: LugaresComponent},
-  {path: 'lugares/:id', component: LugaresComponent},
-  {path: 'detalle/:id', component: DetalleComponent}
+  {path: 'lugares', component: LugaresComponent},
+  {path: 'detalle/:id', component: DetalleComponent},
+  {path: 'contacto', component: ContactoComponent}
 ]
 
 @NgModule({
@@ -23,6 +26,7 @@ const appRoutes: Routes = [
     AppComponent,
     DetalleComponent,
     LugaresComponent,
+    ContactoComponent,
       ResaltarDirective,
       ContarClicksDirective
   ],
@@ -36,7 +40,7 @@ const appRoutes: Routes = [
 
         RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [LugaresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

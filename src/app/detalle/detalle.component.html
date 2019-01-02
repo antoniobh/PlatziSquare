@@ -1,4 +1,18 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-    <h1>detalle</h1>
+<div class="card card-body bg-light">
+  <p>
+    <a routerLink="/lugares">Lugares</a>/{{lugar.nombre}}
+  </p>
+</div>
+
+<div class="container mt-2">
+  <h1>{{lugar.nombre}}</h1>
+  <hr>
+  <small>{{lugar.cercania}}</small>
+  <br>
+  <div class="card card-body bg-light">
+    <p>
+      {{lugar.description}}
+    </p>
+    <b>Plan: {{lugar.plan}}</b>
+  </div>
 </div>
