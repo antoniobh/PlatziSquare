@@ -476,3 +476,51 @@ para acceder a los datos del servicio creamos una variable privada dentro del co
   }
 
 ```
+
+# Configuracion de FireBase
+
+
+Para instalar FireBase en el proyecto corremos el comando en __npm__
+
+```nodejs
+  npm install angularfire2 firebase --save
+```
+
+Colocamos los imports en el __app.module.ts__
+
+```javascript
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+```
+
+Despues de eso agregamos este codigo abajo de los imports
+
+```javascript
+export const firebaseConfig = {
+
+  //Esta informacion la tomamos de firebase
+
+  apiKey: "xxxxxxxxxx",
+  authDomain: "your-domain-name.firebaseapp.com",
+  databaseURL: "https://your-domain-name.firebaseio.com",
+  storageBucket: "your-domain-name.appspot.com",
+  messagingSenderId: '<your-messaging-sender-id>'
+};
+
+```
+
+Por ultimo hacemos agregamos los imports en el arreglo imports del __app.module.ts__
+
+
+```javascript
+
+imports:[
+      ...
+      AngularFireModule.initializeApp(firebaseConfig),
+      AngularFireDatabaseModule,
+      AngularFireAuthModule
+]
+
+
+```
